@@ -7,7 +7,8 @@
     "pages/shopcart/shopcart",
     "pages/personal/personal",
     "pages/web_view/web_view",
-    "pages/settled/settled"
+    "pages/settled/settled",
+    "pages/login/login"
   ],
   "permission": {
     "scope.userLocation": {

@@ -74,4 +74,5 @@ function dealParams(params) {
 module.exports = {
   postRequest: post,
   getRequest: get,
+  baseUrl:baseUrl
 }
