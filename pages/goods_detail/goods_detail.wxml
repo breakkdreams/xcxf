@@ -1,0 +1,63 @@
+<!--商品幻灯片-->
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" style="min-height: 300px;">
+	<swiper-item wx:for="{{swiperList}}" wx:key>
+		<image src="{{item.url}}" mode="aspectFill"></image>
+	</swiper-item>
+</swiper>
+<view style="position:fixed;top:0;" bindtap="backPage">
+	<view>
+		<image src="/images/back.png" class="backImg"></image>
+	</view>
+</view>
+<!--商品幻灯片 end-->
+<view class="bg-white">
+	<view class="flex">
+		<view class="flex-twice padding-sm margin-xs">
+			<view class="text-xl">
+				<text class="text-black text-bold">商品名称/名称</text>
+			</view>
+			<view class="solid-bottom text-xxl">
+				<text class="text-price text-red">80.00</text>
+			</view>
+		</view>
+		<view class="flex-sub padding-xs margin-xs">
+			<view style="text-align:right;font-size: 60rpx;">
+				<text class="cuIcon-forwardfill sm text-gray"></text>
+			</view>
+			<view class="text-sm" style="text-align:right;">
+				<text class="text-gray">销量:100</text>
+			</view>
+		</view>
+	</view>
+</view>
+
+<!--商品详情-->
+<view class='box margin-top solid-bottom bg-white'>
+ <view class="cu-bar justify-center bg-white">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-black">商品详情</text>
+      <text class="text-ABC text-black">DETAIL</text>
+    </view>
+  </view>
+  <view>
+    <rich-text nodes="{{article_content}}"></rich-text>
+  </view>
+</view>
+
+<!--底部浮动 start-->
+<view class="cu-bar bg-white tabbar border shop foot-nav">
+  <button class="action" open-type="contact">
+    <view class="cuIcon-service text-green">
+      <view class="cu-tag badge"></view>
+    </view>
+    客服
+  </button>
+  <view class="action">
+    <view class="cuIcon-cart">
+      <view class="cu-tag badge">99</view>
+    </view>
+    购物车
+  </view>
+  <view class="bg-orange submit">加入购物车</view>
+  <view class="bg-red submit">立即订购</view>
+</view>

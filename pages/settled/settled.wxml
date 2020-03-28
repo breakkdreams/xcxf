@@ -1,0 +1,2 @@
+<!--pages/settled/settled.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}"><view slot="content">商家入驻</view></cu-custom>
