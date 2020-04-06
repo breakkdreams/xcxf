@@ -1,34 +1,47 @@
 <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
 	<view slot="content">银行卡列表</view>
 </cu-custom>
+<van-notify id="van-notify" />
+<van-dialog id="van-dialog" />
 <view class="cu-bar bg-white solid-bottom">
 	<view class="action">
 		<text class="cuIcon-title text-blue"></text>我的银行卡
 	</view>
-	<navigator class="action" url="design" hover-class="none">
+	<navigator class="action" url="/pages/add_bank_card/add_bank_card" hover-class="none">
 		<text class="cuIcon-add"></text>
 		<text class="text-df">添加</text>
 	</navigator>
 </view>
 
-<view class="cu-card article">
-	<view class="cu-item shadow box-class">
-		<van-panel title="姓名" desc="12345678910" status="中国人民银行" use-footer-slot footer-class="footerClass">
-			<view slot="footer">
-				<van-button size="small">编辑</van-button>
-				<van-button size="small" type="danger" class="margin-left">删除</van-button>
+<view class="cu-list menu-avatar card_list" wx:for="{{bank_list}}" wx:key="index">
+	<view class="cu-item">
+		<view class="cu-avatar round lg" style="background-image:url({{item.logo}});"></view>
+		<view class="content">
+			<view class="text-white">
+				<text class="text-cut">{{item.bank}}</text>
 			</view>
-		</van-panel>
+			<view class="text-white text-sm flex">
+				<text class="text-cut">{{item.desc}}</text>
+			</view>
+		</view>
+		<view class="action">
+			<view class="cuIcon-delete text-white lg" bindtap="delete_card" data-id="{{item.id}}"></view>
+		</view>
+	</view>
+	<view class="cu-item">
+		<view class="content text-xl text-white">{{phone.toHide(item.account)}}</view>
+		<view class="action">
+			<view class="text-white text-sm" bindtap="setDefault" data-id="{{item.id}}" wx:if='{{item.is_first!=1}}'>设为默认</view>
+      <view class="text-orange text-sm" wx:else>默认</view>
+		</view>
 	</view>
 </view>
 
-<view class="cu-card article">
-	<view class="cu-item shadow box-class">
-		<van-panel title="姓名" desc="12345678910" status="中国人民银行" use-footer-slot footer-class="footerClass">
-			<view slot="footer">
-				<van-button size="small">编辑</van-button>
-				<van-button size="small" type="danger" class="margin-left">删除</van-button>
-			</view>
-		</van-panel>
-	</view>
-</view>
+<!-- 使用wxs 手机号码中间四位显示为*号 -->
+<wxs module="phone">
+	var toHide = function(array) {
+		var mphone = '**** **** **** ' + array.substring(15);
+		return mphone;
+	}
+	module.exports.toHide = toHide;
+</wxs>

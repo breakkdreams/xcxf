@@ -1,0 +1,19 @@
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+	<view slot="content">绑定手机号</view>
+</cu-custom>
+<van-notify id="van-notify" />
+<view class="cu-card article">
+	<view class="cu-item shadow">
+		<van-cell-group>
+			<van-field value="{{ mobile }}" required clearable label="手机号" placeholder="请输入绑定手机号" bind:change="onChangeMobile" />
+			<van-field value="{{ mobile_code }}" required center clearable label="短信验证码" placeholder="请输入短信验证码" bind:change="onChangeMobileCode" use-button-slot>
+				<van-button slot="button" size="small" color="var(--cyan)" bindtap="sendMessage" disabled='{{disabled}}'>{{time}}</van-button>
+			</van-field>
+
+		</van-cell-group>
+
+		<view class="padding flex flex-direction bg-white">
+			<button class="cu-btn bg-cyan lg" bindtap="bind_phone">绑定手机号</button>
+		</view>
+	</view>
+</view>

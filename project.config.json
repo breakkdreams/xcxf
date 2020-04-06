@@ -174,6 +174,13 @@
 					"id": -1,
 					"name": "pages/bank_list/bank_list bank_list",
 					"pathName": "pages/bank_list/bank_list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/add_bank_card/add_bank_card",
+					"pathName": "pages/add_bank_card/add_bank_card",
 					"scene": null
 				}
 			]

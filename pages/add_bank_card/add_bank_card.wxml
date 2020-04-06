@@ -1,0 +1,15 @@
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+	<view slot="content">添加新卡</view>
+</cu-custom>
+
+<van-notify id="van-notify" />
+
+<van-cell-group>
+	<van-field value="{{ accountname }}" required clearable label="真实姓名" placeholder="请输入真实姓名" bind:change="onChangeAccountName" />
+	<van-field value="{{ tphone }}" required clearable label="手机号" placeholder="请输入手机号" type='number' bind:change="onChangePhone"/>
+	<van-field value="{{ account }}" required clearable label="银行卡号" placeholder="请输入银行卡号" type='number' border="{{ false }}" bind:change="onChangeAccount"/>
+</van-cell-group>
+
+<view class="padding flex flex-direction bg-white">
+	<button class="cu-btn bg-cyan lg" bindtap="add_card">添加</button>
+</view>

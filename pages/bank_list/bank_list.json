@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "van-panel": "../../dist/panel/index",
-    "van-button": "../../dist/button/index"
+    "van-button": "../../dist/button/index",
+    "van-row": "../../dist/row/index",
+    "van-col": "../../dist/col/index",
+    "van-dialog": "../../dist/dialog/index"
   }
 }

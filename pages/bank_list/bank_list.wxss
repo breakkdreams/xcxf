@@ -1,9 +1,7 @@
-.box-class .van-hairline--top-bottom:after{
-  border-width: 0px !important;
+.card_list{
+  margin: 10px;
+  border-radius: 10px;
 }
-.footerClass{
-  text-align: right;
-}
-.panel-index--van-panel__header-value{
-  color: #ff8800c5 !important;
+.cu-list.menu-avatar>.cu-item{
+  background-color: var(--cyan) !important;
 }

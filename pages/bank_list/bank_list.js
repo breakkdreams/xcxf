@@ -1,66 +1,67 @@
-// pages/bank_list/bank_list.js
+var http = require('../../utils/httputils');//网络请求
+const app = getApp();
+import Dialog from '../../dist/dialog/dialog';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    bank_list:''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-
+    this.fetchBankList();
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  fetchBankList(){
+    var that = this;
+    var params = {
+      uid:wx.getStorageSync('uid')
+    };
+    http.postRequest('public/plugin/fund/api_index/index',params,function(res){
+      console.log(res)
+      if(res.code == 200){
+        that.setData({
+          bank_list:res.data.content
+        })
+      }
+    },function(err){})
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  //设为默认
+  setDefault(e){
+    var that = this;
+    var params = {
+      uid:wx.getStorageSync('uid'),
+      id:e.currentTarget.dataset.id,
+    };
+    http.postRequest('public/plugin/fund/api_index/defaultaccount',params,function(res){
+      if(res.code == 200){
+        app.globalData.totify({ type: 'primary', message: res.message });
+        that.fetchBankList();
+      }else{
+        app.globalData.totify({ type: 'warning', message: res.message });
+      }
+    },function(err){})
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  //删除银行卡
+  delete_card(e){
+    var that = this;
+    var params = {
+      id:e.currentTarget.dataset.id,
+    };
+    Dialog.confirm({
+      title: '提示',
+      message: '是否确认删除?'
+    }).then(() => {
+      http.postRequest('public/plugin/fund/api_index/delaccount',params,function(res){
+      if(res.code == 200){
+        app.globalData.totify({ type: 'primary', message: res.message });
+        that.fetchBankList();
+      }else{
+        app.globalData.totify({ type: 'warning', message: res.message });
+      }
+    },function(err){})
+    }).catch(() => {
+      // on cancel
+    });
   }
 })

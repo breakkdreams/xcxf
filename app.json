@@ -18,7 +18,8 @@
     "pages/message_board/message_board",
     "pages/add_goods/add_goods",
     "pages/store_goodsList/store_goodsList",
-    "pages/bank_list/bank_list"
+    "pages/bank_list/bank_list",
+    "pages/add_bank_card/add_bank_card"
   ],
   "permission": {
     "scope.userLocation": {
