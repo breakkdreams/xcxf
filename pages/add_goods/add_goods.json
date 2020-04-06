@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-field": "../../dist/field/index",
+    "van-button": "../../dist/button/index",
+    "van-picker": "../../dist/picker/index",
+    "van-popup": "../../dist/popup/index",
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-uploader": "../../dist/uploader/index",
+    "van-datetime-picker": "../../dist/datetime-picker/index"
+  }
+}

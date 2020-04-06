@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-grid": "../../dist/grid/index",
+    "van-grid-item": "../../dist/grid-item/index",
+    "van-tag": "../../dist/tag/index",
+    "van-row": "../../dist/row/index",
+    "van-col": "../../dist/col/index"
+  },
+  "enablePullDownRefresh": true
+}

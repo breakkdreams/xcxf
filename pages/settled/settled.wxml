@@ -3,26 +3,31 @@
 	<view slot="content">商家入驻</view>
 </cu-custom>
 <view class="bg-white">
+	<van-notify id="van-notify" />
 	<van-uploader class="thumb" file-list="{{ fileList }}" bind:after-read="afterRead" max-count="1" bind:delete="deletedThumb" />
-
 	<van-cell-group>
-		<van-field title-width="120px" value="{{ username }}" required clearable label="企业名称" placeholder="请输入店名" />
-		<van-field title-width="120px" value="{{ password }}" required clearable label="营业执照注册号" placeholder="请输入密码" />
-		<van-field title-width="120px" value="{{ username }}" required clearable label="姓名" placeholder="请输入姓名" />
-		<van-field title-width="120px" value="{{ username }}" required clearable label="身份证号码" placeholder="请输入身份证号码" />
+		<van-field title-width="120px" value="{{ name }}" required clearable label="企业名称" placeholder="请输入店名" bind:change="onChangeName" />
+		<van-field title-width="120px" value="{{ license_code }}" type="number" required clearable label="营业执照注册号" placeholder="请输入营业执照注册号" bind:change="onChangeLicenseCode" />
+		<van-field title-width="120px" value="{{ id_name }}" required clearable label="姓名" placeholder="请输入姓名" bind:change="onChangeIdName" />
+		<van-field title-width="120px" value="{{ id_card }}" type="idcard" required clearable label="身份证号码" placeholder="请输入身份证号码" bind:change="onChangeIdCard" />
 		<!-- 省 -->
 		<van-cell title="请选择省" is-link bind:click="showPopup" value="{{provice_name}}" />
 		<van-popup show="{{ show }}" round position="bottom" custom-style="height: auto" bind:close="onClose">
-			<van-picker show-toolbar title="选择省" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" visible-item-count="10"  defaultIndex="2" />
+			<van-picker show-toolbar title="选择省" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" visible-item-count="10" defaultIndex="{{tag_1}}" />
 		</van-popup>
-    <!-- 市 -->
+		<!-- 市 -->
 		<van-cell title="请选择市" is-link bind:click="showPopup_city" value="{{city_name}}" />
-		<van-popup show="{{ show_city }}" round position="bottom" custom-style="height: auto" bind:close="onClose">
-			<van-picker show-toolbar title="选择市" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm_city" visible-item-count="10"  defaultIndex="2" />
+		<van-popup show="{{ show_city }}" round position="bottom" custom-style="height: auto" bind:close="onClose" z-index="999">
+			<van-picker show-toolbar title="选择市" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm_city" visible-item-count="10" defaultIndex="{{tag_2}}" />
+		</van-popup>
+		<!-- 区 -->
+		<van-cell title="请选择区" is-link bind:click="showPopup_area" value="{{area_name}}" />
+		<van-popup show="{{ show_area }}" round position="bottom" custom-style="height: auto" bind:close="onClose">
+			<van-picker show-toolbar title="选择区" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm_area" visible-item-count="10" defaultIndex="{{tag_3}}" />
 		</van-popup>
 
-		<van-field title-width="120px" value="{{ username }}" required clearable label="店铺地址" placeholder="请输入店铺地址" />
-		<van-field title-width="120px" value="{{ message }}" label="店铺简介" type="textarea" placeholder="请输入店铺简介" autosize />
+		<van-field title-width="120px" value="{{ location }}" required clearable label="店铺地址" placeholder="请输入店铺地址" bind:change="onChangeLocation" />
+		<van-field title-width="120px" value="{{ content }}" label="店铺简介" placeholder="请输入店铺简介" bind:change="onChangeContent" />
 		<van-field title-width="120px" required disabled label="法人身份证" placeholder="请上传法人身份证正反两面" border="{{ false }}" />
 		<van-uploader class="idcard" upload-icon="plus" file-list="{{ idfileList }}" bind:after-read="id_afterRead" max-count="2" bind:delete="deletedIdFile" />
 		<van-divider hairline />
@@ -33,10 +38,12 @@
 	<van-divider hairline />
 
 	<view class="xieyi">
-		<van-checkbox value="{{ checked }}" bind:change="onChange">我已经阅读并了解了《入驻申请协议》</van-checkbox>
+		<van-checkbox value="{{ checked }}" bind:change="onChange">我已经阅读并了解了<span class='agreement' bindtap='tapMessage'>《入驻申请协议》</span></van-checkbox>
+		<van-popup show="{{ agree_show }}" closeable position="bottom" custom-style="height: 92%" bind:close="agree_onClose">
+			<view style="margin-top:{{customBar-40}}px;padding:0 10px 10px 10px;">{{agree_content}}</view>
+		</van-popup>
 	</view>
-
 	<view class="applyBtn">
-		<van-button round type="primary" block>立即申请入驻</van-button>
+		<van-button round type="primary" block bindtap="applySettle">立即申请入驻</van-button>
 	</view>
 </view>

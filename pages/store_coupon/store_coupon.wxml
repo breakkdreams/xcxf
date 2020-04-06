@@ -1,0 +1,95 @@
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+	<view slot="content">优惠劵</view>
+</cu-custom>
+
+
+<van-tabs active="{{ active }}" bind:change="onChange">
+	<van-tab title="优惠卷">
+		<view class="padding flex flex-direction bg-white">
+			<button class="cu-btn bg-cyan lg" bindtap="add_card">添加优惠劵</button>
+		</view>
+
+		<view class="cu-list menu sm-border card-menu margin-top">
+			<view class="cu-list menu-avatar">
+				<view class="cu-item" wx:for="{{5}}">
+					<view class="content" style="left:30rpx;">
+						<view class="text-grey">
+							<text class="text-cut">白衬衫</text>
+						</view>
+						<view class="text-gray text-sm flex">
+							<text class="text-cut">内容：xxxx</text>
+						</view>
+						<view class="text-gray text-sm flex">
+							<text class="text-cut">截止时间:2019-02-03 09:20:20</text>
+						</view>
+					</view>
+					<view class="action">
+						<view class="text-grey text-xs">额度:100</view>
+						<view class="cuIcon-deletefill text-red"></view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+	</van-tab>
+	<van-tab title="优惠卷包">
+		<view class="padding flex flex-direction bg-white">
+			<button class="cu-btn bg-cyan lg" bindtap="add_package_card">添加优惠劵包</button>
+		</view>
+
+		<view class="cu-list menu sm-border card-menu margin-top">
+			<view class="cu-list menu-avatar">
+				<view class="cu-item" wx:for="{{5}}">
+					<view class="content" style="left:30rpx;">
+						<view class="text-grey">
+							<text class="text-cut">白衬衫</text>
+						</view>
+						<view class="text-gray text-sm flex">
+							<text class="text-cut">内容：xxxx</text>
+						</view>
+						<view class="text-gray text-sm flex">
+							<text class="text-cut">截止时间:2019-02-03 09:20:20</text>
+						</view>
+					</view>
+					<view class="action">
+						<view class="cuIcon-deletefill text-red"></view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</van-tab>
+</van-tabs>
+<view style="height:50px"></view>
+<view class="history">查看历史记录>></view>
+
+
+<van-dialog use-slot title="添加优惠卷" show="{{ card_show }}" show-cancel-button bind:confirm="confirm_card" bind:close="onClose" z-index="1">
+	<van-cell-group>
+		<van-field value="{{ value }}" placeholder="请输入优惠卷标题" border="{{ false }}" bind:change="onChange" />
+		<van-field value="{{ value }}" placeholder="请输入优惠卷额度" border="{{ false }}" bind:change="onChange" />
+		<van-cell title="截至时间" custom-class="text-grey" is-link value="{{timer}}" border="{{ false }}" bindtap="onChangeTime" />
+		<van-field value="{{ value }}" placeholder="请输入内容" border="{{ false }}" bind:change="onChange" />
+	</van-cell-group>
+</van-dialog>
+
+<van-popup show="{{ time_show }}" position="bottom" custom-style="height: auto;" overlay="{{false}}" z-index="999">
+	<date-picker bindonselectdate="handleSelecteDate" enableTime="{{true}}" />
+</van-popup>
+
+
+<van-dialog use-slot title="添加优惠卷包" show="{{ card_package_show }}" show-cancel-button bind:confirm="confirm_package_card" bind:close="onClose" z-index="1">
+	<van-cell-group>
+		<van-field value="{{ value }}" placeholder="请输入优惠卷包名" border="{{ false }}" bind:change="onChange" />
+		<van-field value="{{ value }}" placeholder="请输入内容" border="{{ false }}" bind:change="onChange" />
+		<van-cell title="截至时间" custom-class="text-grey" is-link value="{{package_timer}}" border="{{ false }}" bindtap="onPackageChangeTime" />
+		<van-cell title="选择优惠劵" custom-class="text-grey" is-link value="{{card_choose}}" border="{{ false }}" bindtap="onCardListChange" />
+	</van-cell-group>
+</van-dialog>
+
+<van-popup show="{{ package_time_show }}" position="bottom" custom-style="height: auto;" overlay="{{false}}" z-index="999">
+	<date-picker bindonselectdate="handleSelectePackageDate" enableTime="{{true}}" />
+</van-popup>
+
+<van-popup show="{{ card_list_show }}" position="bottom" custom-style="height: auto;" overlay="{{false}}" z-index="999">
+	<van-picker show-toolbar title="选择优惠劵" columns="{{ columns }}" bind:cancel="onListCancel" bind:confirm="handleSelecteList" />
+</van-popup>

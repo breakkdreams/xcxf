@@ -1,2 +1,9 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
+.emptyData{
+  width: 30%;
+}
+.emptyBox{
+  text-align: center;
+  background-color: white;
+}

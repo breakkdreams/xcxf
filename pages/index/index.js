@@ -70,10 +70,29 @@ Page({
     ],
     TabCur: 0,
     scrollLeft:0,
-    city:''
+    city:'',
+    status:''
   },
-  onLoad() {
+  onShow() {
+    console.log(wx.getStorageSync('uid'));
     this.getLocalInfo();
+    this.getSwiperList();
+    //获取店铺状态
+    this.getStoreInfo();
+  },
+  getStoreInfo(){
+    var that = this;
+    var params = {
+      id:wx.getStorageSync('uid')
+    }
+    http.postRequest('public/plugin/store/api_index/getStore',params,function(res){
+      console.log(res)
+      if(res.code == 200){
+        that.setData({
+          status:res.data.status
+        })
+      }
+    })
   },
   //获取定位信息
   getLocalInfo(){
@@ -149,9 +168,7 @@ Page({
       DotStyle: e.detail.value
     })
   },
-  onShow(){
-    this.getSwiperList();
-  },
+
   //获取轮播图
   getSwiperList(){
     var that= this;
@@ -178,8 +195,29 @@ Page({
   },
   //跳转商家入驻
   settled(){
-    wx.navigateTo({
-      url: '/pages/settled/settled',
-    })
+    var that = this;
+    that.getStoreInfo();
+    var store_is = wx.getStorageSync('store_is');
+    if(store_is == 0){
+      wx.navigateTo({
+        url: '/pages/store_login/store_login',
+      })
+    }else{
+      if(that.data.status == 1 || that.data.status == 3 || that.data.status == 4){
+        wx.navigateTo({
+          url: '/pages/progress/progress',
+        })
+      }else if(that.data.status == 2){
+        wx.navigateTo({
+          url: '/pages/store_home/store_home',
+        })
+      }else if(that.data.status == 0){
+        wx.navigateTo({
+          url: '/pages/settled/settled',
+        })
+      }
+    }
+    
+    
   }
 })

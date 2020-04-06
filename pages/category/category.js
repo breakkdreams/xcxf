@@ -1,4 +1,5 @@
-
+const app = getApp();
+var http = require('../../utils/httputils'); //网络请求
 Page({
   data: {
     currentTab: 0,  //对应样式变化

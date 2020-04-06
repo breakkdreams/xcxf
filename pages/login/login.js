@@ -52,6 +52,7 @@ Page({
         function (res) {
           if(res.code==200){
             wx.setStorageSync('uid', res.data.uid);
+            wx.setStorageSync('store_is', res.data.store_is);
           }else{
             Toast.err('获取用户uid失败')
           }
@@ -98,6 +99,7 @@ Page({
           //保存到缓存
           if(res.code==200){
             wx.setStorageSync('uid', res.data.uid);
+            wx.setStorageSync('store_is', res.data.store_is);
           }else{
             Toast.err('获取用户uid失败')
           }

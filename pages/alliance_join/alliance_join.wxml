@@ -1,0 +1,21 @@
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+	<view slot="content">加入联盟</view>
+</cu-custom>
+
+
+<view class="cu-card article ">
+	<view class="cu-item shadow">
+
+		<van-cell-group>
+			<van-field value="{{ username }}" clearable label="商家邮箱" placeholder="请输入商家邮箱" border="{{ false }}" />
+			<van-field value="{{ username }}" clearable label="商家手机号" placeholder="请输入商家手机号" border="{{ false }}" />
+			<van-field value="{{ username }}" clearable label="商家店铺名" placeholder="请输入商家店铺名" border="{{ false }}" />
+			<van-field value="{{ message }}" label="留言" type="textarea" placeholder="请输入留言" autosize border="{{ false }}" />
+		</van-cell-group>
+
+		<view class="padding flex flex-direction">
+			<button class="cu-btn bg-cyan lg" bindtap="join_alliance">申请</button>
+		</view>
+
+	</view>
+</view>

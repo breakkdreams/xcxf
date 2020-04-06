@@ -1,0 +1,6 @@
+.idcard .van-uploader__upload{
+  margin-left: 3vw !important;
+}
+.idcard .van-uploader__preview-image{
+  margin-left: 3vw !important;
+}

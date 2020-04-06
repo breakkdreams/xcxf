@@ -21,7 +21,8 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"bundle": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
@@ -96,6 +97,83 @@
 					"id": -1,
 					"name": "pages/login/login",
 					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/progress/progress",
+					"pathName": "pages/progress/progress",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/store_login/store_login",
+					"pathName": "pages/store_login/store_login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/store_home/store_home",
+					"pathName": "pages/store_home/store_home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/alliance_shop/alliance_shop",
+					"pathName": "pages/alliance_shop/alliance_shop",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/alliance_join/alliance_join",
+					"pathName": "pages/alliance_join/alliance_join",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/store_coupon/store_coupon",
+					"pathName": "pages/store_coupon/store_coupon",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/message_board/message_board",
+					"pathName": "pages/message_board/message_board",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/add_goods/add_goods",
+					"pathName": "pages/add_goods/add_goods",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/store_goodsList/store_goodsList",
+					"pathName": "pages/store_goodsList/store_goodsList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/bank_list/bank_list bank_list",
+					"pathName": "pages/bank_list/bank_list",
 					"scene": null
 				}
 			]

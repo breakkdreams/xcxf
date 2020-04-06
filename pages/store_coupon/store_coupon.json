@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "van-tab": "../../dist/tab/index",
+    "van-tabs": "../../dist/tabs/index",
+    "van-divider": "../../dist/divider/index",
+    "van-dialog": "../../dist/dialog/index",
+    "van-field": "../../dist/field/index",
+    "date-picker": "../../component/date-picker/index",
+    "van-button": "../../dist/button/index",
+    "van-popup": "../../dist/popup/index",
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-picker": "../../dist/picker/index"
+  }
+}

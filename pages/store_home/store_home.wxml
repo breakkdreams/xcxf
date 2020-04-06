@@ -1,0 +1,50 @@
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+	<view slot="content">商家首页</view>
+</cu-custom>
+
+<view class="grid col-2 bg-cyan padding-sm">
+	<view class="padding-sm">
+		<view class="bg-cyan padding radius text-center light">
+			<view class="text-lg">会员总数</view>
+			<view class="margin-top-sm text-Abc">209</view>
+		</view>
+	</view>
+	<view class="padding-sm">
+		<view class="bg-cyan padding radius text-center light">
+			<view class="text-lg">今日营业额</view>
+			<view class="margin-top-sm text-Abc">567561</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="cu-card article ">
+	<view class="cu-item shadow">
+		
+		<van-grid column-num="5" border="{{ false }}">
+			<van-grid-item icon="/images/all_order.png" text="全部订单" dot />
+			<van-grid-item icon="/images/be_use.png" text="待使用" info="99+" />
+			<van-grid-item icon="/images/used.png" text="已使用" info="99+" />
+			<van-grid-item icon="/images/finshed.png" text="已完成" info="99+" />
+			<van-grid-item icon="/images/sales.png" text="退款售后" info="99+" />
+		</van-grid>
+
+	</view>
+</view>
+
+
+<view class="cu-card article ">
+	<view class="cu-item shadow">
+		<van-grid border="{{ false }}">
+			<van-grid-item icon="/images/lianmen.png" text="联盟管理" data-page="/pages/alliance_shop/alliance_shop" bindtap="turnPage"/>
+			<van-grid-item icon="/images/card.png" text="优惠劵" data-page="/pages/store_coupon/store_coupon" bindtap="turnPage"/>
+			<van-grid-item icon="/images/shop.png" text="商品管理" />
+			<van-grid-item icon="/images/sever.png" text="客服管理" />
+			<van-grid-item icon="/images/member.png" text="我的会员" />
+			<van-grid-item icon="/images/write_off.png" text="核销" />
+			<van-grid-item icon="/images/mywallet.png" text="我的钱包" />
+			<van-grid-item icon="/images/message.png" data-page="/pages/message_board/message_board" bindtap="turnPage" text="留言板" />
+			<van-grid-item icon="/images/er_code.png" text="付款码" />
+		</van-grid>
+	</view>
+</view>

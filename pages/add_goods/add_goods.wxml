@@ -1,0 +1,36 @@
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+	<view slot="content">添加商品</view>
+</cu-custom>
+
+<view class="cu-card article bg-white">
+	<van-notify id="van-notify" />
+	<view class="cu-item shadow">
+		<van-cell-group border="{{ false }}" >
+			<van-field value="{{ goodsname }}" required clearable label="产品名称" placeholder="请输入产品名称" bind:change="onChangeName" border="{{ false }}" />
+			<van-field required label="产品主图" placeholder="请选择产品主图" disabled border="{{ false }}" />
+			<van-uploader class="idcard" upload-icon="plus" file-list="{{ licensefileList }}" bind:after-read="license_afterRead" max-count="1" bind:delete="deletedLicenseFile" />
+			<van-cell title="产品分类" required is-link value="{{category_name}}" bindtap="changeCategoryShow" border="{{ false }}" />
+			<van-field value="{{ goodsdesc }}" required clearable label="产品简介" placeholder="请输入产品简介" bind:change="onChangeDesc" border="{{ false }}" />
+			<van-field required disabled label="相关图片" placeholder="请选择相关图片" border="{{ false }}" />
+			<van-uploader class="idcard" upload-icon="plus" file-list="{{ idfileList }}" bind:after-read="id_afterRead" max-count="3" bind:delete="deletedIdFile" />
+			<van-field value="{{ marketprice }}" required clearable label="产品原价" type="digit" placeholder="请输入产品原价" bind:change="onChangeMarketprice" border="{{ false }}" />
+			<van-field value="{{ shopprice }}" required clearable label="产品现价" type="digit" placeholder="请输入产品现价" bind:change="onChangeShopprice" border="{{ false }}" />
+			<van-field value="{{ commission }}" required clearable label="产品佣金" type="digit" placeholder="请输入产品佣金" bind:change="onChangeCommission" border="{{ false }}" />
+			<van-cell title="截至时间" required is-link value="{{time_name}}" bindtap="changeTimeShow" border="{{ false }}" />
+			<van-field value="{{ salenum }}" type="number" required clearable label="商品数量" placeholder="请输入商品数量" bind:change="onChangeSalenum" border="{{ false }}" />
+		</van-cell-group>
+
+		<view class="registerBtn">
+			<van-button color="var(--cyan)" block round bindtap="add_shop">添加商品</van-button>
+		</view>
+	</view>
+</view>
+
+<van-popup show="{{ category_show }}" round position="bottom" custom-style="height: auto;" bind:close="onClose">
+	<van-picker columns="{{ sortList }}" bind:change="onChangeCategory" show-toolbar title="选择分类" bind:cancel="onClose" bind:confirm="onCategoryConfirm" />
+</van-popup>
+
+
+<van-popup show="{{ time_show }}" round position="bottom" custom-style="height: auto;" bind:close="onClose">
+	<van-datetime-picker type="datetime" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:input="onInput" bind:cancel="onClose" bind:confirm="onTimeConfirm"  />
+</van-popup>

@@ -8,7 +8,17 @@
     "pages/personal/personal",
     "pages/web_view/web_view",
     "pages/settled/settled",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/progress/progress",
+    "pages/store_login/store_login",
+    "pages/store_home/store_home",
+    "pages/alliance_shop/alliance_shop",
+    "pages/alliance_join/alliance_join",
+    "pages/store_coupon/store_coupon",
+    "pages/message_board/message_board",
+    "pages/add_goods/add_goods",
+    "pages/store_goodsList/store_goodsList",
+    "pages/bank_list/bank_list"
   ],
   "permission": {
     "scope.userLocation": {
@@ -54,7 +64,8 @@
     ]
   },
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-custom": "/colorui/components/cu-custom",
+    "van-notify": "/dist/notify/index"
   },
   "sitemapLocation": "sitemap.json"
 }

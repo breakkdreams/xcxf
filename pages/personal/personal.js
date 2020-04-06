@@ -1,3 +1,5 @@
+var http = require('../../utils/httputils');//网络请求
+const app = getApp();
 Component({
   options: {
     addGlobalClass: true,
@@ -6,6 +8,7 @@ Component({
     starCount: 0,
     forksCount: 0,
     visitTotal: 0,
+    memberInfo:'',
     iconList: [{
       icon: 'cardboardfill',
       color: 'red',
@@ -34,6 +37,21 @@ Component({
     }],
   },
   methods: {
-   
+    onLoad(){
+      var that = this;
+      var params = {
+        uid:wx.getStorageSync('uid')
+      };
+      http.postRequest('public/plugin/member/api_index/personalData',params,function(res){
+        console.log(res)
+        if(res.code==200){
+          that.setData({
+            memberInfo:res.data
+          })
+        }
+      },function(err){
+
+      })
+    }
   }
 })

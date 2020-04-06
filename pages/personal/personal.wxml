@@ -1,8 +1,9 @@
 <scroll-view scroll-y class="scrollPage">
 	<view class="UCenter-bg">
-		<view class="cu-avatar xl round margin-left" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg);"></view>
-		<view class="text-xl">会员名称
-			<text class="text-df">10086</text>
+		<view class="cu-avatar xl round margin-left" style="background-image:url({{memberInfo.wechat_headimg}})"></view>
+		
+		<view class="text-xl">{{memberInfo.nickname}}
+			<text class="text-df">{{memberInfo.mobile}}</text>
 		</view>
 		<view class="margin-top-sm">
 			<text>电子券余额:¥0.00</text>

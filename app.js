@@ -1,4 +1,5 @@
 //app.js
+import Notify from './dist/notify/notify';
 App({
 
   onLaunch: function() {
@@ -30,7 +31,8 @@ App({
     StatusBar: null,
     Custom: null,
     CustomBar: null,
-    city:''
+    city:'',
+    totify:Notify
   }
   
 })

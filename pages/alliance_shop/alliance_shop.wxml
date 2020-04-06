@@ -1,0 +1,20 @@
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+	<view slot="content">联盟店铺</view>
+</cu-custom>
+
+<view class="cu-card article ">
+	<view class="cu-item shadow">
+
+    <view class="padding flex flex-direction">
+      <button class="cu-btn bg-cyan lg" bindtap="join_alliance">加入联盟</button>
+    </view>
+
+		<van-cell-group border="{{ false }}">
+			<van-cell title="联盟店铺名" value="12345678910" label="2020/03/12 15:22:00" border="{{ false }}" />
+			<van-cell title="联盟店铺名" value="12345678910" label="2020/03/12 15:22:00" border="{{ false }}" />
+			<van-cell title="联盟店铺名" value="12345678910" label="2020/03/12 15:22:00" border="{{ false }}" />
+			<van-cell title="联盟店铺名" value="12345678910" label="2020/03/12 15:22:00" border="{{ false }}" />
+			<van-cell title="联盟店铺名" value="12345678910" label="2020/03/12 15:22:00" border="{{ false }}" />
+		</van-cell-group>
+	</view>
+</view>

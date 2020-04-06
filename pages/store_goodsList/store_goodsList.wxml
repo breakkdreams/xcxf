@@ -1,0 +1,42 @@
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+	<view slot="content">产品管理</view>
+</cu-custom>
+<van-notify id="van-notify" />
+
+<view class="cu-bar search bg-white">
+	<view class="search-form round">
+		<text class="cuIcon-search"></text>
+		<input type="text" placeholder="搜索商品" confirm-type="search" bindinput="bind_name" value="{{search_name}}"></input>
+	</view>
+	<view class="action">
+		<button class="cu-btn bg-cyan shadow-blur round" bindtap="search_goods">搜索</button>
+	</view>
+</view>
+
+<!-- 商品列表 -->
+<view class="bg-white">
+	<van-grid column-num="2" border="{{ false }}">
+		<van-grid-item use-slot wx:for="{{ goods_list }}" wx:for-item="item">
+			<image style="width: 100%; height: 150px;" src="{{item.goodsimg}}" data-id="{{index}}" binderror="bindImgError" />
+			<view class="titleClass">
+				<van-row>
+					<van-col span="12">{{item.goodsname}}</van-col>
+					<van-col span="12" custom-class="priceClass">{{item.shopprice}}元</van-col>
+				</van-row>
+			</view>
+			<view style="width:100%;text-align:center;">
+				<!-- <van-tag round type="primary" custom-class="tagClass">分享</van-tag> -->
+				<van-tag round type="success" custom-class="tagClass" size="large">下架</van-tag>
+				<van-tag round type="danger" custom-class="tagClass" size="large">修改</van-tag>
+				<van-tag round color="#7232dd" custom-class="tagClass" size="large">推荐</van-tag>
+			</view>
+		</van-grid-item>
+	</van-grid>
+</view>
+
+
+<movable-area style="pointer-events: none;height: 100%;width: 100%;position:absolute;left:0px;top:0px;">
+	<movable-view direction="all" x="{{width}}" y="{{height}}" style="pointer-events: auto;height: 50px; width: 50px;">
+		<image src='../../images/add.png' mode="aspectFit" bindtap="add_btn"></image>
+	</movable-view>
+</movable-area>

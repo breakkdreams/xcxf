@@ -1,0 +1,9 @@
+.box-class .van-hairline--top-bottom:after{
+  border-width: 0px !important;
+}
+.footerClass{
+  text-align: right;
+}
+.panel-index--van-panel__header-value{
+  color: #ff8800c5 !important;
+}

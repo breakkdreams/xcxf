@@ -1,3 +1,4 @@
+// var baseUrl='http://glutony.asuscomm.com:888/web/';
 var baseUrl='http://192.168.1.88:10016/';
 /**
  * 请求头
